@@ -9,3 +9,16 @@ before_install:
 
 script:
   - docker run -e CI=true spglab/wyk7 npm run test
+
+  deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "jaslikowski"
+  env: "Jaslikowski-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-311721357325"
+  bucket_path: "jaslikowski"
+  edge: true
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
