@@ -10,7 +10,7 @@ before_install:
 script:
   - docker run -e CI=true spglab/wyk7 npm run test
 
-  deploy:
+deploy:
   provider: elasticbeanstalk
   region: "eu-central-1"
   app: "jaslikowski"
